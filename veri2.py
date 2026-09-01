@@ -25,7 +25,19 @@ if uploaded_file is not None:
 
         # Sütun adlarındaki fazlalıkları temizle
         df.columns = df.columns.str.strip()
-
+if 'Ad' in df.columns and 'Soyad' in df.columns:
+2
+df['Ad Soyad'] = (
+3
+df['Ad'].fillna('').astype(str).str.strip()
+4
++ ' ' +
+5
+df['Soyad'].fillna('').astype(str).str.strip()
+6
+).str.strip()
+7
+``
         # =========================================================
         # 1) GELEN BAŞLIKLARI HEP AYNI "HEDEF" BAŞLIKLARA ÇEVİR
         #    (Senin istediğin standardize başlıklar)
